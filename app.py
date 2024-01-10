@@ -18,16 +18,20 @@ class usuario:
     def __str__(self):
         return f"{self.user}({self.password})"
     
-    def insert(user,password):
-        query = "INSERT INTO usuarios VALUES ('"+user+"','"+password+"')"
+    def insert(self):
+        query = "INSERT INTO usuarios VALUES ('"+self.user+"','"+self.password+"')"
         return query
     def login(user,password):
         query = "SELECT * FROM usuarios WHERE usuario = '"+user+"' AND pass = '"+password+"'"
 #query = """SELECT * FROM usuarios"""
-usuario
+user = input("ingresar usuario")
+password = input("ingresar contraseña")
 
-cursor.execute(query)
+activeuser = usuario(user,password)
 
-records = cursor.fetchall()
-for r in records:
-    print(f"{r['id']}\t{r['usuario']}\t{r['pass']}")
+print (activeuser.insert())
+#cursor.execute(query)
+
+#records = cursor.fetchall()
+#for r in records:
+#    print(f"{r['id']}\t{r['usuario']}\t{r['pass']}")
